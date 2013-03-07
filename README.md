@@ -16,4 +16,4 @@ i used this import just to import from an excel file (converted it into csv and 
 the cliparts
 ============
 
-http://openclipart.org
+https://openclipart.org/about
