@@ -12,6 +12,9 @@
    	end
    	nach +='</ul>'
    	nach.gsub!(/<li><b><\/b> : <\/li>/,"")
+   	if nach=="<ul></ul>" 
+   		nach ="<ul>alle anzeigen</ul>"
+   	end
 %>
 <div id="suchenach" style="margin:auto;margin-bottom:25px;background:rgba(200,200,200,0.7);width:450px;postition:relative;left:0px;border:dashed 2px black;text-align:left;padding:25px;border-radius:15px;box-shadow:0px 0px 5px 5px rgba(100,100,100,0.7);">
 <a>Suche nach :<%=nach%></a>
@@ -29,6 +32,9 @@
   	<%=music.send(p.name).to_s.capitalize%></li> 
   <% end %>
   </ul>
+  <form method="post" action="/delete?id=<%=music.send('id')%>">
+   <input type="submit" value="eintrag löschen" />
+</form>
   </div>
    
 <% end %>

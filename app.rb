@@ -46,6 +46,13 @@ class MusicApp < Sinatra::Base
     redirect '/'
   end
 
+  post '/delete' do
+    pp params
+    @del=Music.get(params["id"])
+    @del.destroy
+    redirect 'search'
+  end
+    
   get '/search' do
     hash={}
 
