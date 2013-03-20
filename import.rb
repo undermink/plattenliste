@@ -1,12 +1,15 @@
 require './app.rb'
 require 'pp'
 
-File.open("Musikdatei_02.csv"){|f|
+File.open("Musikdatei_singles.csv"){|f|
   f.each_line{|line|
     if line.length>2
-      cols=line[1..-2].split('","')
+      cols=line[0..-2].split(';')
       if cols.length>6
 	pp cols
+	if cols[13]==nil
+		cols[13]='unbekannt'
+	end
 	u=Music.create({
 
 	  :lfdnr=>cols[0],
